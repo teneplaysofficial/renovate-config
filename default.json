@@ -41,7 +41,8 @@
     "automerge": true,
     "platformAutomerge": true,
     "recreateWhen": "always",
-    "schedule": ["after 9pm on Sunday"]
+    "schedule": ["after 9pm on Sunday"],
+    "groupName": "lockfile maintenance"
   },
 
   "npm": { "enabled": true },
@@ -55,8 +56,13 @@
 
   "packageRules": [
     {
-      "description": "Always automerge lock file maintenance",
+      "description": "Single PR for all lock file maintenance (root + monorepo)",
       "matchUpdateTypes": ["lockFileMaintenance"],
+      "groupName": "lockfile maintenance",
+      "additionalBranchPrefix": "",
+      "commitMessageSuffix": "",
+      "separateMajorMinor": false,
+      "separateMultipleMajor": false,
       "automerge": true,
       "platformAutomerge": true
     },
