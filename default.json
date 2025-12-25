@@ -17,11 +17,9 @@
     "pre-commit-ci[bot]",
     "github-actions[bot]"
   ],
-  "ignorePrAuthor": false,
 
   "stabilityDays": 3,
-  "requiredStatusChecks": ["continuous-integration"],
-  "rebaseWhen": "conflicted",
+  "rebaseWhen": "auto",
 
   "prHourlyLimit": 5,
   "prConcurrentLimit": 20,
@@ -32,42 +30,33 @@
   "automergeStrategy": "squash",
   "automergeRequireAllStatusChecks": true,
 
-  "separateMajorMinor": true,
-  "separateMultipleMajor": true,
-  "respectLatest": false,
+  "dependencyDashboardAutoclose": false,
 
   "lockFileMaintenance": {
     "enabled": true,
-    "automerge": true,
-    "platformAutomerge": true,
     "recreateWhen": "always",
     "schedule": ["after 9pm on Sunday"],
-    "groupName": "lockfile maintenance"
+    "groupName": "lockfile maintenance",
+    "automerge": true,
+    "platformAutomerge": true
   },
-
-  "npm": { "enabled": true },
-  "pnpm": { "enabled": true },
-  "yarn": { "enabled": true },
-  "bun": { "enabled": true },
-  "deno": { "enabled": true },
-  "gomod": { "enabled": true },
 
   "postUpdateOptions": ["pnpmDedupe"],
 
   "packageRules": [
     {
-      "description": "Single PR for all lock file maintenance (root + monorepo)",
+      "description": "Single PR for all lockfile maintenance",
       "matchUpdateTypes": ["lockFileMaintenance"],
       "groupName": "lockfile maintenance",
-      "additionalBranchPrefix": "",
-      "commitMessageSuffix": "",
       "separateMajorMinor": false,
       "separateMultipleMajor": false,
+      "additionalBranchPrefix": "",
+      "commitMessageTopic": "lockfiles",
       "automerge": true,
       "platformAutomerge": true
     },
     {
-      "description": "Automerge minor, patch & digest updates",
+      "description": "Automerge minor, patch and digest updates",
       "matchUpdateTypes": ["minor", "patch", "digest"],
       "automerge": true
     },
@@ -82,40 +71,9 @@
       "groupName": "dev dependencies"
     },
     {
-      "description": "Group all @types/* packages",
+      "description": "Group all @types dependencies",
       "matchPackagePatterns": ["^@types/"],
       "groupName": "@types dependencies"
-    },
-    {
-      "description": "Monorepo: prefix branch & commit with package path",
-      "matchManagers": ["npm", "pnpm", "yarn", "bun"],
-      "matchFileNames": ["**/package.json"],
-      "additionalBranchPrefix": "{{packageFileDir}}/",
-      "commitMessageSuffix": " ({{packageFileDir}})"
-    },
-    {
-      "description": "Deno: automerge minor & patch updates",
-      "matchManagers": ["deno"],
-      "matchUpdateTypes": ["minor", "patch", "digest"],
-      "automerge": true
-    },
-    {
-      "description": "Deno: never automerge major updates",
-      "matchManagers": ["deno"],
-      "matchUpdateTypes": ["major"],
-      "automerge": false
-    },
-    {
-      "description": "Go modules: automerge minor & patch updates",
-      "matchManagers": ["gomod"],
-      "matchUpdateTypes": ["minor", "patch", "digest"],
-      "automerge": true
-    },
-    {
-      "description": "Go modules: never automerge major updates",
-      "matchManagers": ["gomod"],
-      "matchUpdateTypes": ["major"],
-      "automerge": false
     }
   ]
 }
