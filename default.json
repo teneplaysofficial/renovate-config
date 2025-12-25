@@ -6,7 +6,9 @@
     "config:recommended",
     ":semanticCommits",
     ":dependencyDashboard",
-    ":disableRateLimiting"
+    ":disableRateLimiting",
+    "group:allDevDependencies",
+    "group:types"
   ],
 
   "assignees": ["teneplaysofficial"],
@@ -64,16 +66,6 @@
       "description": "Never automerge major updates",
       "matchUpdateTypes": ["major"],
       "automerge": false
-    },
-    {
-      "description": "Group devDependencies",
-      "matchDepTypes": ["devDependencies"],
-      "groupName": "dev dependencies"
-    },
-    {
-      "description": "Group all @types dependencies",
-      "matchPackagePatterns": ["^@types/"],
-      "groupName": "@types dependencies"
     }
   ]
 }
