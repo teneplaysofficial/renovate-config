@@ -15,7 +15,6 @@
     "group:types",
 
     "group:monorepos",
-    "group:monorepoAllMajor",
 
     "group:githubActions",
     "group:docker",
