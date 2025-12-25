@@ -7,8 +7,20 @@
     ":semanticCommits",
     ":dependencyDashboard",
     ":disableRateLimiting",
+    ":preserveSemverRanges",
+    ":pinDigests",
+
+    "group:allNonMajor",
     "group:allDevDependencies",
-    "group:types"
+    "group:types",
+
+    "group:monorepos",
+    "group:monorepoAllMajor",
+
+    "group:githubActions",
+    "group:docker",
+
+    "workarounds:all"
   ],
 
   "assignees": ["teneplaysofficial"],
@@ -52,7 +64,6 @@
       "groupName": "lockfile maintenance",
       "separateMajorMinor": false,
       "separateMultipleMajor": false,
-      "additionalBranchPrefix": "",
       "commitMessageTopic": "lockfiles",
       "automerge": true,
       "platformAutomerge": true
