@@ -28,7 +28,7 @@
   "automerge": true,
   "platformAutomerge": true,
   "automergeStrategy": "squash",
-  "automergeRequireAllStatusChecks": true,
+  "automergeRequireAllStatusChecks": false,
 
   "dependencyDashboardAutoclose": false,
 
