@@ -26,13 +26,7 @@
   "assignees": ["teneplaysofficial"],
   "labels": ["dependencies", "renovate"],
 
-  "allowedAuthors": [
-    "renovate[bot]",
-    "pre-commit-ci[bot]",
-    "github-actions[bot]"
-  ],
-
-  "stabilityDays": 3,
+  "minimumReleaseAge": "3 days",
   "rebaseWhen": "auto",
 
   "prHourlyLimit": 5,
@@ -40,19 +34,16 @@
   "branchConcurrentLimit": 50,
 
   "automerge": true,
-  "platformAutomerge": true,
   "automergeStrategy": "squash",
-  "automergeRequireAllStatusChecks": false,
 
   "dependencyDashboardAutoclose": false,
 
   "lockFileMaintenance": {
     "enabled": true,
     "recreateWhen": "always",
-    "schedule": ["after 9pm on Sunday"],
+    "schedule": ["every sunday"],
     "groupName": "lockfile maintenance",
-    "automerge": true,
-    "platformAutomerge": true
+    "automerge": true
   },
 
   "postUpdateOptions": ["pnpmDedupe"],
@@ -62,11 +53,8 @@
       "description": "Single PR for all lockfile maintenance",
       "matchUpdateTypes": ["lockFileMaintenance"],
       "groupName": "lockfile maintenance",
-      "separateMajorMinor": false,
-      "separateMultipleMajor": false,
       "commitMessageTopic": "lockfiles",
-      "automerge": true,
-      "platformAutomerge": true
+      "automerge": true
     },
     {
       "description": "Automerge minor, patch and digest updates",
