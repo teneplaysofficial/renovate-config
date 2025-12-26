@@ -17,9 +17,21 @@
     "group:monorepos",
 
     "group:githubActions",
-    "group:docker",
+    "group:docker"
+  ],
 
-    "workarounds:all"
+  "enabledManagers": [
+    "npm",
+    "pnpm",
+    "yarn",
+    "bun",
+    "deno",
+    "gomod",
+    "poetry",
+    "pipenv",
+    "pip-requirements",
+    "dockerfile",
+    "github-actions"
   ],
 
   "assignees": ["teneplaysofficial"],
@@ -39,7 +51,6 @@
 
   "lockFileMaintenance": {
     "enabled": true,
-    "recreateWhen": "always",
     "schedule": ["every sunday"],
     "groupName": "lockfile maintenance",
     "automerge": true
