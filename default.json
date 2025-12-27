@@ -23,14 +23,13 @@
   ],
 
   "assignees": ["teneplaysofficial"],
-  "labels": ["dependencies", "renovate"],
+  "addLabels": ["dependencies", "renovate"],
 
   "minimumReleaseAge": "3 days",
   "rebaseWhen": "auto",
 
   "prHourlyLimit": 5,
-  "prConcurrentLimit": 20,
-  "branchConcurrentLimit": 50,
+  "prConcurrentLimit": 10,
 
   "automerge": true,
   "automergeStrategy": "squash",
@@ -39,7 +38,7 @@
 
   "lockFileMaintenance": {
     "enabled": true,
-    "recreateWhen": "always",
+    "recreateWhen": "auto",
     "schedule": ["every sunday"],
     "groupName": "lockfile maintenance",
     "automerge": true
