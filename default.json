@@ -39,7 +39,7 @@
   "lockFileMaintenance": {
     "enabled": true,
     "recreateWhen": "auto",
-    "schedule": ["every sunday"],
+    "schedule": ["on sunday"],
     "groupName": "lockfile maintenance",
     "automerge": true
   },
