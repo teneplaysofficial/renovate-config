@@ -1,68 +1,59 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "timezone": "Asia/Kolkata",
-
   "extends": [
     "config:recommended",
     ":semanticCommits",
     ":dependencyDashboard",
-    ":disableRateLimiting",
     ":preserveSemverRanges",
     ":pinDigests",
-
-    "group:allNonMajor",
-    "group:allDevDependencies",
-    "group:types",
-
     "group:monorepos",
-
-    "group:githubActions",
-    "group:docker",
-
+    "group:recommended",  // Groups common non-monorepo packages (e.g., linters, testers)
+    "helpers:pinGitHubActionDigests",
     "workarounds:all"
   ],
+
+  "timezone": "Asia/Kolkata",  // Keep your timezone if desired
 
   "assignees": ["teneplaysofficial"],
   "addLabels": ["dependencies", "renovate"],
 
-  "minimumReleaseAge": "3 days",
-  "rebaseWhen": "auto",
+  "minimumReleaseAge": "3 days",  // Wait for releases to stabilize before processing
 
-  "prHourlyLimit": 5,
-  "prConcurrentLimit": 10,
+  "prConcurrentLimit": 10,       // Default; prevents overload
+  "prHourlyLimit": 2,            // Default; gentle PR creation rate
 
   "automerge": true,
+  "automergeType": "pr",         // Use platform-native automerge (faster on GitHub)
   "automergeStrategy": "squash",
 
   "dependencyDashboardAutoclose": false,
 
   "lockFileMaintenance": {
     "enabled": true,
+    "automerge": true,
     "recreateWhen": "auto",
-    "schedule": ["every sunday"],
-    "groupName": "lockfile maintenance",
-    "automerge": true
+    "schedule": ["every weekend"]  // Common: weekly on weekends
   },
 
-  "postUpdateOptions": ["pnpmDedupe"],
+  "postUpdateOptions": ["pnpmDedupe"],  // pnpm-specific: optimizes install tree
 
   "packageRules": [
     {
-      "description": "Single PR for all lockfile maintenance",
+      "description": "Group and automerge lockfile maintenance",
       "matchUpdateTypes": ["lockFileMaintenance"],
       "groupName": "lockfile maintenance",
-      "commitMessageTopic": "lockfiles",
       "automerge": true
     },
     {
-      "description": "Automerge minor, patch and digest updates",
-      "matchUpdateTypes": ["minor", "patch", "digest"],
+      "description": "Automerge non-major updates (minor, patch, pin, digest)",
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
     },
     {
-      "description": "Never automerge major updates",
+      "description": "Require review for major updates",
       "matchUpdateTypes": ["major"],
-      "automerge": false
+      "automerge": false,
+      "addLabels": ["major-update"]  // Optional: extra label for visibility
     }
   ]
 }
