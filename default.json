@@ -10,7 +10,6 @@
     ":preserveSemverRanges",
 
     "group:allNonMajor",
-    "group:allDevDependencies",
     "group:types",
 
     "group:monorepos",
