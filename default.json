@@ -10,11 +10,8 @@
     ":preserveSemverRanges",
 
     "group:allNonMajor",
-
     "group:monorepos",
-
     "group:githubActions",
-    "group:docker",
 
     "workarounds:all"
   ],
@@ -50,6 +47,16 @@
       "groupName": "lockfile maintenance",
       "commitMessageTopic": "lockfiles",
       "automerge": true
+    },
+    {
+      "description": "Group type packages",
+      "matchPackagePatterns": ["^@types/"],
+      "groupName": "type dependencies"
+    },
+    {
+      "description": "Group non-major updates",
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "non-major dependencies"
     },
     {
       "description": "Automerge minor, patch and digest updates",
