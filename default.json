@@ -8,11 +8,6 @@
     ":dependencyDashboard",
     ":disableRateLimiting",
     ":preserveSemverRanges",
-
-    "group:allNonMajor",
-    "group:monorepos",
-    "group:githubActions",
-
     "workarounds:all"
   ],
 
@@ -32,7 +27,6 @@
 
   "lockFileMaintenance": {
     "enabled": true,
-    "recreateWhen": "auto",
     "schedule": ["on sunday"],
     "groupName": "lockfile maintenance",
     "automerge": true
@@ -42,11 +36,19 @@
 
   "packageRules": [
     {
-      "description": "Single PR for all lockfile maintenance",
-      "matchUpdateTypes": ["lockFileMaintenance"],
-      "groupName": "lockfile maintenance",
-      "commitMessageTopic": "lockfiles",
-      "automerge": true
+      "description": "Group GitHub Actions",
+      "matchManagers": ["github-actions"],
+      "groupName": "github actions"
+    },
+    {
+      "description": "Group Docker dependencies",
+      "matchDatasources": ["docker"],
+      "groupName": "docker dependencies"
+    },
+    {
+      "description": "Group devDependencies",
+      "matchDepTypes": ["devDependencies"],
+      "groupName": "dev dependencies"
     },
     {
       "description": "Group type packages",
@@ -56,7 +58,7 @@
     {
       "description": "Group non-major updates",
       "matchUpdateTypes": ["minor", "patch"],
-      "groupName": "non-major dependencies"
+      "groupName": "non-major updates"
     },
     {
       "description": "Automerge minor, patch and digest updates",
