@@ -8,7 +8,6 @@
     ":dependencyDashboard",
     ":disableRateLimiting",
     ":preserveSemverRanges",
-    ":pinDigests",
 
     "group:allNonMajor",
     "group:allDevDependencies",
