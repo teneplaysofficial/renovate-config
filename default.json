@@ -50,6 +50,11 @@
       "groupName": "docker dependencies"
     },
     {
+      "description": "Group dependencies",
+      "matchDepTypes": ["dependencies"],
+      "groupName": "dependencies"
+    },
+    {
       "description": "Group devDependencies",
       "matchDepTypes": ["devDependencies"],
       "groupName": "dev dependencies"
