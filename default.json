@@ -40,41 +40,6 @@
 
   "packageRules": [
     {
-      "description": "Group GitHub Actions",
-      "matchManagers": ["github-actions"],
-      "groupName": "github actions"
-    },
-    {
-      "description": "Group Docker dependencies",
-      "matchDatasources": ["docker"],
-      "groupName": "docker dependencies"
-    },
-    {
-      "description": "Group dependencies",
-      "matchDepTypes": ["dependencies"],
-      "groupName": "dependencies"
-    },
-    {
-      "description": "Group devDependencies",
-      "matchDepTypes": ["devDependencies"],
-      "groupName": "dev dependencies"
-    },
-    {
-      "description": "Group type packages",
-      "matchPackagePatterns": ["^@types/"],
-      "groupName": "type dependencies"
-    },
-    {
-      "description": "Group non-major updates",
-      "matchUpdateTypes": ["minor", "patch"],
-      "groupName": "non-major dependencies"
-    },
-    {
-      "description": "Automerge minor, patch and digest updates",
-      "matchUpdateTypes": ["minor", "patch", "digest"],
-      "automerge": true
-    },
-    {
       "description": "Never automerge major updates",
       "matchUpdateTypes": ["major"],
       "automerge": false
