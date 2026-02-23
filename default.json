@@ -15,7 +15,7 @@
   "addLabels": ["dependencies", "renovate"],
 
   "gitIgnoredAuthors": [
-    "pre-commit-ci[bot] <66853113+pre-commit-ci[bot]@users.noreply.github.com>"
+    "66853113+pre-commit-ci[bot]@users.noreply.github.com"
   ],
 
   "ignoreAuthors": ["pre-commit-ci[bot]"],
