@@ -79,6 +79,7 @@
       "description": "Group ESLint packages",
       "matchPackagePatterns": [
         "^eslint",
+        "^@eslint/",
         "^typescript-eslint",
         "^@typescript-eslint/"
       ],
@@ -87,7 +88,10 @@
     },
     {
       "description": "Group Prettier packages",
-      "matchPackagePatterns": ["^prettier"],
+      "matchPackagePatterns": [
+        "^prettier",
+        "^@prettier/"
+      ],
       "groupName": "prettier",
       "addLabels": ["prettier"]
     },
