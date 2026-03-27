@@ -8,17 +8,34 @@
     ":dependencyDashboard",
     ":disableRateLimiting",
     ":preserveSemverRanges",
-    "workarounds:all"
+    "helpers:pinGitHubActionDigests",
+    ":configMigration",
+    "abandonments:recommended",
+    "workarounds:all",
+    "group:monorepos",
+    "group:nodeJs",
+    "group:githubArtifactActions",
+    "group:react",
+    "group:vitestMonorepo",
+    "group:linters",
+    "group:definitelyTyped"
   ],
 
   "assignees": ["teneplaysofficial"],
   "addLabels": ["dependencies", "renovate"],
 
-  "gitIgnoredAuthors": [
-    "66853113+pre-commit-ci[bot]@users.noreply.github.com"
-  ],
+  "gitIgnoredAuthors": ["66853113+pre-commit-ci[bot]@users.noreply.github.com"],
 
   "ignoreAuthors": ["pre-commit-ci[bot]"],
+
+  "osvVulnerabilityAlerts": true,
+
+  "vulnerabilityAlerts": {
+    "labels": ["security"],
+    "automerge": false
+  },
+
+  "schedule": ["before 6am on weekdays"],
 
   "minimumReleaseAge": "3 days",
   "rebaseWhen": "auto",
@@ -44,7 +61,59 @@
     {
       "description": "Never automerge major updates",
       "matchUpdateTypes": ["major"],
-      "automerge": false
+      "automerge": false,
+      "addLabels": ["breaking-change", "major"]
+    },
+    {
+      "description": "Automerge patch updates",
+      "matchUpdateTypes": ["patch"],
+      "automerge": true,
+      "addLabels": ["patch"]
+    },
+    {
+      "description": "Automerge minor devDependency updates",
+      "matchDepTypes": ["devDependencies"],
+      "matchUpdateTypes": ["minor"],
+      "automerge": true,
+      "addLabels": ["minor"]
+    },
+    {
+      "description": "Group ESLint packages",
+      "matchPackagePatterns": [
+        "^eslint",
+        "^typescript-eslint",
+        "^@typescript-eslint/"
+      ],
+      "groupName": "eslint",
+      "addLabels": ["eslint"]
+    },
+    {
+      "description": "Group Prettier packages",
+      "matchPackagePatterns": ["^prettier"],
+      "groupName": "prettier",
+      "addLabels": ["prettier"]
+    },
+    {
+      "description": "Group GitHub Actions non-major updates",
+      "matchManagers": ["github-actions"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "github actions",
+      "automerge": true,
+      "addLabels": ["github-actions"]
+    },
+    {
+      "description": "Group Docker non-major updates",
+      "matchManagers": ["dockerfile", "docker-compose"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "docker",
+      "addLabels": ["docker"]
+    },
+    {
+      "description": "Security vulnerability fixes",
+      "matchCategories": ["security"],
+      "minimumReleaseAge": "0 days",
+      "automerge": false,
+      "addLabels": ["security"]
     }
   ]
 }
