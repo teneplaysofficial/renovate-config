@@ -47,7 +47,7 @@
   "dependencyDashboardAutoclose": false,
 
   "lockFileMaintenance": {
-    "enabled": true,
+    "enabled": false,
     "schedule": ["on sunday"],
     "groupName": "lockfile maintenance",
     "automerge": true
@@ -74,6 +74,15 @@
       "matchUpdateTypes": ["minor"],
       "automerge": true,
       "addLabels": ["minor"]
+    },
+    {
+      "description": "Group Astro ecosystem",
+      "matchPackagePatterns": [
+    "^astro",
+    "^@astrojs/"
+  ],
+  "groupName": "astro",
+  "addLabels": ["astro"]
     },
     {
       "description": "Group ESLint packages",
@@ -109,6 +118,24 @@
       "matchUpdateTypes": ["minor", "patch"],
       "groupName": "docker",
       "addLabels": ["docker"]
+    },
+    {
+  "description": "Group Vite ecosystem",
+  "matchPackagePatterns": [
+    "^vite",
+    "^@vitejs/"
+  ],
+  "groupName": "vite",
+  "addLabels": ["vite"]
+    },
+    {
+  "description": "Group Vitest ecosystem",
+  "matchPackagePatterns": [
+    "^vitest",
+    "^@vitest/"
+  ],
+  "groupName": "vitest",
+  "addLabels": ["vitest"]
     },
     {
       "description": "Security vulnerability fixes",
