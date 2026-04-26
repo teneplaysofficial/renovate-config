@@ -141,7 +141,7 @@
       "description": "Security vulnerability fixes",
       "matchCategories": ["security"],
       "minimumReleaseAge": "0 days",
-      "automerge": false,
+      "automerge": true,
       "addLabels": ["security"]
     }
   ]
