@@ -129,15 +129,6 @@
   "addLabels": ["vite"]
     },
     {
-  "description": "Group Vitest ecosystem",
-  "matchPackagePatterns": [
-    "^vitest",
-    "^@vitest/"
-  ],
-  "groupName": "vitest",
-  "addLabels": ["vitest"]
-    },
-    {
       "description": "Security vulnerability fixes",
       "matchCategories": ["security"],
       "minimumReleaseAge": "0 days",
