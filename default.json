@@ -1,3 +1,4 @@
+
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "timezone": "Asia/Kolkata",
@@ -12,13 +13,14 @@
     ":configMigration",
     "abandonments:recommended",
     "workarounds:all",
+    "group:definitelyTyped",
     "group:monorepos",
     "group:nodeJs",
     "group:githubArtifactActions",
     "group:react",
+    "group:pnpm",
     "group:vitestMonorepo",
-    "group:linters",
-    "group:definitelyTyped"
+    "group:linters"
   ],
 
   "assignees": ["teneplaysofficial"],
