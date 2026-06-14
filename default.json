@@ -18,7 +18,7 @@
     "group:githubArtifactActions",
     "group:react",
     "group:pnpm",
-    "package:vite",
+    "group:vite",
     "group:eslintMonorepo",
     "group:typescript-eslintMonorepo",
     "group:storybookMonorepo",
