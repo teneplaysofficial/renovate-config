@@ -1,4 +1,3 @@
-
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "timezone": "Asia/Kolkata",
@@ -19,6 +18,11 @@
     "group:githubArtifactActions",
     "group:react",
     "group:pnpm",
+    "package:vite",
+    "group:eslintMonorepo",
+    "group:typescript-eslintMonorepo",
+    "group:storybookMonorepo",
+    "group:astroMonorepo",
     "group:vitestMonorepo",
     "group:linters"
   ],
@@ -78,26 +82,6 @@
       "addLabels": ["minor"]
     },
     {
-      "description": "Group Astro ecosystem",
-      "matchPackagePatterns": [
-    "^astro",
-    "^@astrojs/"
-  ],
-  "groupName": "astro",
-  "addLabels": ["astro"]
-    },
-    {
-      "description": "Group ESLint packages",
-      "matchPackagePatterns": [
-        "^eslint",
-        "^@eslint/",
-        "^typescript-eslint",
-        "^@typescript-eslint/"
-      ],
-      "groupName": "eslint",
-      "addLabels": ["eslint"]
-    },
-    {
       "description": "Group Prettier packages",
       "matchPackagePatterns": [
         "^prettier",
@@ -107,28 +91,18 @@
       "addLabels": ["prettier"]
     },
     {
-      "description": "Group GitHub Actions non-major updates",
-      "matchManagers": ["github-actions"],
-      "matchUpdateTypes": ["minor", "patch"],
-      "groupName": "github actions",
-      "automerge": true,
-      "addLabels": ["github-actions"]
-    },
+  "description": "Group all GitHub Actions updates",
+  "matchManagers": ["github-actions"],
+  "groupName": "github actions",
+  "automerge": true,
+  "addLabels": ["github-actions"]
+},
     {
       "description": "Group Docker non-major updates",
       "matchManagers": ["dockerfile", "docker-compose"],
       "matchUpdateTypes": ["minor", "patch"],
       "groupName": "docker",
       "addLabels": ["docker"]
-    },
-    {
-  "description": "Group Vite ecosystem",
-  "matchPackagePatterns": [
-    "^vite",
-    "^@vitejs/"
-  ],
-  "groupName": "vite",
-  "addLabels": ["vite"]
     },
     {
       "description": "Security vulnerability fixes",
