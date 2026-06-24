@@ -38,7 +38,7 @@
 
   "vulnerabilityAlerts": {
     "labels": ["security"],
-    "automerge": false
+    "automerge": true
   },
 
   "minimumReleaseAge": "3 days",
@@ -111,13 +111,6 @@
       "matchUpdateTypes": ["minor", "patch"],
       "groupName": "docker",
       "addLabels": ["docker"]
-    },
-    {
-      "description": "Security vulnerability fixes",
-      "matchCategories": ["security"],
-      "minimumReleaseAge": "0 days",
-      "automerge": true,
-      "addLabels": ["security"]
     }
   ]
 }
