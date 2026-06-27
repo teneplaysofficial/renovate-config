@@ -38,7 +38,7 @@
 
   "vulnerabilityAlerts": {
     "labels": ["security"],
-    "automerge": true
+    "automerge": false
   },
 
   "minimumReleaseAge": "3 days",
@@ -111,6 +111,19 @@
       "matchUpdateTypes": ["minor", "patch"],
       "groupName": "docker",
       "addLabels": ["docker"]
-    }
+    },{
+    "description": "Automerge security/vulnerability fixes, but ONLY non-major",
+    "matchUpdateTypes": ["patch", "minor"],
+    "isVulnerabilityAlert": true,
+    "automerge": true,
+    "addLabels": ["security"]
+  },
+  {
+    "description": "Never automerge major security updates - needs manual review",
+    "matchUpdateTypes": ["major"],
+    "isVulnerabilityAlert": true,
+    "automerge": false,
+    "addLabels": ["security", "breaking-change", "major"]
+  }
   ]
 }
