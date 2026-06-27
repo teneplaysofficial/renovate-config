@@ -69,17 +69,10 @@
       "addLabels": ["breaking-change", "major"]
     },
     {
-      "description": "Automerge patch updates",
-      "matchUpdateTypes": ["patch"],
-      "automerge": true,
-      "addLabels": ["patch"]
-    },
-    {
-      "description": "Automerge minor devDependency updates",
-      "matchDepTypes": ["devDependencies"],
-      "matchUpdateTypes": ["minor"],
-      "automerge": true,
-      "addLabels": ["minor"]
+  "description": "Automerge minor and patch updates",
+  "matchUpdateTypes": ["patch", "minor"],
+  "automerge": true,
+  "addLabels": ["{{updateType}}"]
     },
     {
       "description": "Group Prettier packages",
@@ -111,20 +104,6 @@
       "matchUpdateTypes": ["minor", "patch"],
       "groupName": "docker",
       "addLabels": ["docker"]
-    },{
-    "description": "Automerge security/vulnerability fixes, but ONLY non-major",
-    "matchUpdateTypes": ["patch", "minor"],
-    "isVulnerabilityAlert": true,
-    "automerge": true, "minimumReleaseAge": "0 days",
-
-    "addLabels": ["security"]
-  },
-  {
-    "description": "Never automerge major security updates - needs manual review",
-    "matchUpdateTypes": ["major"],
-    "isVulnerabilityAlert": true,
-    "automerge": false,
-    "addLabels": ["security", "breaking-change", "major"]
-  }
+    }
   ]
 }
