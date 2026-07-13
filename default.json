@@ -64,7 +64,7 @@
     {
       "description": "Automerge security/vulnerability fixes, but ONLY non-major",
       "matchUpdateTypes": ["patch", "minor"],
-      "isVulnerabilityAlert": true,
+      "matchJsonata": ["isVulnerabilityAlert"],
       "automerge": true,
       "minimumReleaseAge": "0 days",
       "addLabels": ["security", "{{updateType}}"]
@@ -72,7 +72,7 @@
     {
       "description": "Never automerge major security updates - needs manual review",
       "matchUpdateTypes": ["major"],
-      "isVulnerabilityAlert": true,
+      "matchJsonata": ["isVulnerabilityAlert"],
       "automerge": false,
       "addLabels": ["security", "breaking-change", "major"]
     },
