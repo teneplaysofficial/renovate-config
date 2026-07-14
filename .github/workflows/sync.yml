@@ -1,0 +1,46 @@
+name: Sync
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - default.json
+
+permissions:
+  contents: read
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v7
+
+      - name: Checkout target repository
+        uses: actions/checkout@v7
+        with:
+          repository: usezeryon/renovate-config
+          token: ${{ secrets.ORG_TOKEN }}
+          path: target
+
+      - name: Copy file
+        run: |
+          cp default.json target/default.json
+
+      - name: Commit changes
+        run: |
+          cd target
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add default.json
+
+          if git diff --cached --quiet; then
+            echo "No changes"
+            exit 0
+          fi
+
+          git commit -m "chore: sync default.json"
+          git push
